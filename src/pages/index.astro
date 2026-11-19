@@ -1,0 +1,66 @@
+---
+const year = new Date().getFullYear();
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Portafolio de Sebastián Gabriel Díaz De la Cruz — fundador de DLC TECH S.A.C." />
+    <title>Sebastián Díaz De la Cruz — DLC TECH</title>
+  </head>
+  <body>
+    <main>
+      <section id="inicio" class="hero">
+        <div class="frame" aria-hidden="true"></div>
+        <nav aria-label="Navegación principal">
+          <a class="brand" href="#inicio">DLC <span>TECH</span></a>
+          <div class="navlinks"><a href="#perfil">Perfil</a><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto</a></div>
+        </nav>
+        <div class="hero-copy">
+          <p class="eyebrow">PORTAFOLIO · LIMA, PERÚ</p>
+          <h1>Sebastián<br /><em>Díaz De la Cruz</em></h1>
+          <div class="intro">
+            <p>Construyendo presencia digital con criterio, intención y una atención obsesiva por los detalles.</p>
+            <a class="underlined" href="#perfil">Conocer el enfoque <span aria-hidden="true">↘</span></a>
+          </div>
+        </div>
+        <p class="signature">DLC TECH S.A.C.</p>
+      </section>
+
+      <section id="perfil" class="section profile">
+        <p class="eyebrow">01 / PERFIL</p>
+        <div class="two-col">
+          <h2>La tecnología también puede tener <em>carácter.</em></h2>
+          <div class="prose">
+            <p>Soy Sebastián Gabriel Díaz De la Cruz, fundador de DLC TECH S.A.C. Este espacio reúne el trabajo que apruebo y representa una forma de crear: clara, meticulosa y pensada para permanecer.</p>
+            <p>La base se encuentra en construcción. Cada caso futuro documentará el problema, mi rol, las tecnologías empleadas, capturas y los enlaces disponibles.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="proyectos" class="section projects">
+        <div><p class="eyebrow">02 / PROYECTOS</p><h2>Archivo <em>selectivo.</em></h2></div>
+        <div class="empty"><b aria-hidden="true">✦</b><p>Los proyectos se incorporarán aquí únicamente tras su aprobación.</p><span>PRÓXIMAMENTE</span></div>
+      </section>
+
+      <section id="contacto" class="contact">
+        <p class="eyebrow">03 / CONTACTO</p>
+        <h2>Hablemos de algo<br /><em>bien hecho.</em></h2>
+        <div class="contact-links"><a class="underlined" href="mailto:gerencia@dlctech.pe">gerencia@dlctech.pe</a><a class="underlined" href="https://github.com/tipaso07" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </main>
+    <footer><p>© {year} Sebastián Gabriel Díaz De la Cruz</p><p>DLC TECH S.A.C.</p></footer>
+  </body>
+</html>
+
+<style>
+  @import "tailwindcss";
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600&display=swap');
+  :global(*){box-sizing:border-box}:global(html){scroll-behavior:smooth}:global(body){margin:0;background:#111411;color:#f0eadc;font-family:Manrope,sans-serif}:global(a){color:inherit;text-decoration:none}:global(::selection){background:#b49453;color:#111411}
+  .hero{min-height:100svh;padding:2rem clamp(1.5rem,5vw,5rem);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(circle at 82% 20%,#1e4035 0%,#111411 37%),#111411}.hero:before,.hero:after{content:'';position:absolute;border:1px solid #be9a8254;border-radius:50%;pointer-events:none}.hero:before{width:min(53vw,720px);aspect-ratio:1;right:-12%;top:9%;box-shadow:inset 0 0 0 52px #295e4514,inset 0 0 0 104px #295e450d}.hero:after{width:min(20vw,280px);aspect-ratio:1;right:19%;bottom:-9%}.frame{position:absolute;inset:1.1rem;border:1px solid #f0eadc2e;pointer-events:none}.hero>*{position:relative;z-index:1}
+  nav{display:flex;align-items:center;justify-content:space-between}.brand{font:500 .85rem/1 'DM Mono',monospace;letter-spacing:.18em}.brand span,.eyebrow,em,.underlined span,.empty b{color:#b49453}.navlinks{display:flex;gap:clamp(1rem,3vw,2.5rem);font:.72rem 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em}.navlinks a{opacity:.7}.navlinks a:hover{opacity:1}.hero-copy{max-width:1040px;margin:auto 0;padding:6rem 0 3rem}.eyebrow{font:500 .68rem/1.5 'DM Mono',monospace;letter-spacing:.16em;margin:0 0 1.5rem}h1,h2{margin:0;font:400 clamp(3.6rem,10vw,9.5rem)/.87 'DM Serif Display',Georgia,serif;letter-spacing:-.055em}em{font-weight:inherit}.intro{display:flex;align-items:end;gap:3rem;margin:clamp(2.5rem,6vw,5rem) 0 0 clamp(0rem,16vw,13rem);max-width:610px}.intro p{max-width:270px;margin:0;font-size:.92rem;line-height:1.7;color:#f0eadcc2}.underlined{border-bottom:1px solid #b49453;padding-bottom:.35rem;white-space:nowrap;font:.7rem 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}.signature{align-self:flex-end;margin:0;font:.67rem 'DM Mono',monospace;letter-spacing:.13em;color:#f0eadc8f}
+  .section{padding:clamp(5rem,11vw,10rem) clamp(1.5rem,10vw,11rem)}.profile{background:#eee7d8;color:#182019;position:relative}.profile:after{content:'✦';position:absolute;right:12%;bottom:10%;color:#7b1f31;font-size:3rem;opacity:.7}.two-col,.projects{display:grid;grid-template-columns:1.15fr .85fr;gap:5rem;align-items:start}.profile h2,.projects h2,.contact h2{font-size:clamp(2.9rem,6vw,6rem)}.profile h2 em{color:#7b1f31}.prose{max-width:480px;font-size:1rem;line-height:1.8}.prose p{margin:0 0 1.4rem}.projects{background:#163c31;color:#f0eadc;grid-template-columns:.7fr 1.3fr;gap:3rem}.empty{min-height:290px;border:1px solid #f0eadc47;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem;background:linear-gradient(140deg,#ffffff0d,transparent)}.empty b{font-size:2.5rem;margin-bottom:1.2rem}.empty p{max-width:330px;font:1.2rem/1.55 'DM Serif Display',Georgia,serif;margin:0 0 1.5rem}.empty span,footer{font:.65rem 'DM Mono',monospace;letter-spacing:.15em}.empty span{color:#b49453}.contact{padding:clamp(5rem,10vw,9rem) clamp(1.5rem,10vw,11rem);background:#5d1827;position:relative;overflow:hidden}.contact:after{content:'DLC';position:absolute;right:-1rem;bottom:-4.7rem;font:400 clamp(10rem,28vw,27rem)/1 'DM Serif Display',Georgia,serif;color:#11141124}.contact>*{position:relative;z-index:1}.contact h2 em{color:#d0b477}.contact-links{display:flex;gap:2rem;margin-top:3rem;flex-wrap:wrap}footer{padding:1.4rem clamp(1.5rem,5vw,5rem);display:flex;justify-content:space-between;gap:1rem;color:#f0eadc99;text-transform:uppercase}
+  @media(max-width:720px){.navlinks{display:none}.intro{align-items:start;flex-direction:column;gap:1.8rem;margin-left:0}.two-col,.projects{grid-template-columns:1fr;gap:2.5rem}.profile:after{display:none}.section,.contact{padding-left:1.5rem;padding-right:1.5rem}}
+</style>
