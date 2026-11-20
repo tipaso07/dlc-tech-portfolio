@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import { existsSync } from 'node:fs';
+import frames from '../../public/media/coleccion/frames.json';
+const projects = await getCollection('projects');
+const selected = projects.filter(p => p.data.featured).sort((a,b) => a.id.localeCompare(b.id)).slice(0,3);
+const hasFilm = existsSync('public/media/coleccion/recorrido.mp4');
+---
+<section id="proyectos" aria-labelledby="works-heading">
+  <div class="journey">
+    <div class="stage">
+      <div class="picture">
+        <img class="plate wall" src="/media/coleccion/pared.jpg" alt="" width="1280" height="720" loading="lazy"/>
+        <div class="mounted">
+          {selected.map((p,i) => {
+            const f = frames[i];
+            return <a href={'#project-'+p.id} aria-label={p.data.title} style={`left:${f.left*100}%;top:${f.top*100}%;width:${f.width*100}%;height:${f.height*100}%`}>
+              {p.data.cover && <img src={p.data.cover} alt=""/>}<span>{p.data.title}</span>
+            </a>;
+          })}
+        </div>
+        <img class="plate vault" src="/media/coleccion/boveda.jpg" alt="" width="1280" height="720" loading="lazy"/>
+        <img class="plate lectern" src="/media/coleccion/atril.jpg" alt="" width="1280" height="720" loading="lazy"/>
+        {hasFilm && <video class="plate film" muted playsinline preload="metadata" aria-hidden="true">
+          <source src="/media/coleccion/recorrido.mp4" type="video/mp4"/>
+        </video>}
+      </div>
+      <div class="caption"><h2 id="works-heading" data-i18n="works">Selected works</h2>
+      {projects.length > 0 && <a href="#project-list" data-i18n="all">View all projects</a>}</div>
+    </div>
+  </div>
+  {projects.length > 0 && <div id="project-list">{projects.map(({id,data}) =>
+    <article id={'project-'+id}><h3>{data.title}</h3><p>{data.summary}</p>
+      <p>{data.problem}</p><p>{data.role}</p><p>{data.technologies.join(' · ')}</p>
+      {data.repository && <a href={data.repository}>GitHub</a>} {data.demo && <a href={data.demo}>Demo</a>}
+    </article>
+  )}</div>}
+</section>
+<style>
+  section {background:#211c20;color:#f6e7d6}
+  .stage {display:grid;align-content:center;justify-items:center;padding:1.5rem 0}
+  .picture {width:min(100%,150svh);aspect-ratio:16/9;position:relative;overflow:hidden}
+  .mounted,.plate {position:absolute;inset:0;width:100%;height:100%}
+  .mounted a {position:absolute;display:grid;place-items:center;overflow:hidden;background:#352930;color:#f6e7d6}
+  .mounted img {width:100%;height:100%;object-fit:cover}
+  .mounted span {position:absolute;bottom:0;left:0;right:0;padding:.5em;background:#211c20e8;text-align:center}
+  .mounted a:focus-visible {outline:3px solid white;outline-offset:-4px}
+  .lectern,.vault,.film {display:none;pointer-events:none}
+  .caption {display:flex;align-items:center;justify-content:space-between;gap:1rem;width:min(90%,140svh);padding:1rem 0}
+  .caption h2 {font:500 clamp(2rem,4vw,3.8rem)/1 'Bodoni Moda',serif;margin:0}
+  .caption a,article a {color:#eac49b;text-decoration:underline}
+  #project-list {max-width:60rem;margin:auto;padding:2rem}
+  article {padding:2rem 0;border-top:1px solid #c89b6866}
+  @media(min-width:761px) and (prefers-reduced-motion:no-preference) {
+    .journey[data-motion] {height:215svh}
+    [data-motion] .stage {height:100svh;position:sticky;top:0;padding:0}
+    [data-motion] .lectern,[data-motion] .vault {display:block}
+    [data-motion] .lectern {opacity:var(--atril,1)}
+    [data-motion] .vault {opacity:var(--vault,0)}
+    [data-motion] .picture {transform:scale(var(--zoom,1))}
+    [data-motion] .caption {opacity:var(--caption,0)}
+    [data-film] .film {display:block;opacity:var(--film,1)}
+    [data-film] .picture {transform:none}
+  }
+</style>
+<script>
+  const journey = document.querySelector<HTMLElement>('.journey')!;
+  const links = journey.querySelector<HTMLElement>('.mounted')!;
+  const caption = journey.querySelector<HTMLElement>('.caption')!;
+  const animated = matchMedia('(min-width:761px) and (prefers-reduced-motion:no-preference)');
+  const film = journey.querySelector('video');
+  journey.dataset.motion = '';
+  const clamp = (v:number) => Math.max(0,Math.min(1,v));
+  function update() {
+    const p = clamp(-journey.getBoundingClientRect().top / Math.max(1,journey.offsetHeight-window.innerHeight));
+    const fade = clamp((p-.35)/.5);
+    journey.style.setProperty('--atril',String(1-clamp(p/.37)));
+    journey.style.setProperty('--vault',String(1-fade));
+    journey.style.setProperty('--caption',String(clamp((p-.68)/.17)));
+    journey.style.setProperty('--zoom',String(1-.045*Math.sin(Math.PI*fade)));
+    links.inert = caption.inert = animated.matches && p < .82;
+    if (film && animated.matches && Number.isFinite(film.duration) && !film.error) {
+      journey.dataset.film = '';
+      const time = clamp(p/.88)*Math.max(0,film.duration-1/24);
+      if (!film.seeking && Math.abs(film.currentTime-time) >= 1/48) film.currentTime=time;
+      journey.style.setProperty('--film',String(1-clamp((p-.88)/.05)));
+      links.inert = caption.inert = p < .93;
+    }
+  }
+  film?.addEventListener('loadeddata',update);
+  film?.addEventListener('seeked',update);
+  film?.addEventListener('error',() => {delete journey.dataset.film; update()});
+  animated.addEventListener('change',update);
+  addEventListener('resize',update);
+  addEventListener('scroll',update,{passive:true});
+  update();
+</script>

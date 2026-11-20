@@ -1,4 +1,5 @@
 ---
+import Gallery from '../components/Gallery.astro';
 const year = new Date().getFullYear();
 ---
 
@@ -15,6 +16,7 @@ const year = new Date().getFullYear();
   </head>
   <body>
     <main>
+      <div class="opening">
       <section id="inicio" class="hero" aria-label="Presentación de Sebastián Díaz">
         <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
           <source src="/media/museo-laguna-v19.mp4" type="video/mp4" />
@@ -36,6 +38,7 @@ const year = new Date().getFullYear();
           </div>
           <p class="panel-footer" data-i18n="footer">LIMA, PERU · AVAILABLE TO COLLABORATE</p>
         </aside>
+      </section>
         <div class="locale-picker locale-picker-fixed">
           <label class="sr-only" for="locale-select">Select language</label>
           <select id="locale-select" class="locale-select" aria-label="Select language">
@@ -44,10 +47,15 @@ const year = new Date().getFullYear();
             <option value="ja">🇯🇵</option>
           </select>
         </div>
-      </section>
-
-      <section id="perfil" class="content-section profile"><p class="section-label">01 / PERFIL</p><div class="content-grid"><h2>La tecnología también puede tener <em>carácter.</em></h2><p>Soy Sebastián Gabriel Díaz De la Cruz. Este espacio reúne el trabajo que apruebo y representa una forma de crear: clara, meticulosa y pensada para permanecer.</p></div></section>
-      <section id="proyectos" class="content-section archive"><p class="section-label">02 / PROYECTOS</p><div class="content-grid"><h2>Archivo <em>selectivo.</em></h2><p>Los proyectos se incorporarán aquí únicamente después de su aprobación.</p></div></section>
+      <section id="perfil" class="content-section profile">
+        <div class="content-grid">
+          <div><p class="section-label" data-i18n="about">About me</p><h2>Sebastián Gabriel<br/>Díaz De la Cruz</h2></div>
+          <div class="profile-body"><p data-i18n="bio">I’m based in Lima, Peru. For this portfolio, I built a Venetian museum in Blender and brought it to the web.</p>
+            <p class="section-label" data-i18n="tools">Tools behind this portfolio</p>
+            <p>Blender · Astro · TypeScript · Tailwind CSS</p></div>
+        </div>
+      </section></div>
+      <Gallery />
       <section id="contacto" class="content-section contact-section"><p class="section-label">03 / CONTACTO</p><div class="content-grid"><h2>Hablemos de algo<br /><em>bien hecho.</em></h2><p>El canal de contacto se habilitará próximamente.</p></div></section>
     </main>
     <footer>© {year} Sebastián Gabriel Díaz De la Cruz</footer>
@@ -60,10 +68,20 @@ const year = new Date().getFullYear();
       };
       const updateLocale = (locale) => {
         document.documentElement.lang = locale;
-        document.querySelectorAll('[data-i18n]').forEach((element) => { element.innerHTML = copy[locale][element.dataset.i18n]; });
+        const labels = { en: {bio:'I’m based in Lima, Peru. For this portfolio, I built a Venetian museum in Blender and brought it to the web.',tools:'Tools behind this portfolio',works:'Selected works',all:'View all projects'}, es:{bio:'Vivo en Lima, Perú. Para este portafolio construí un museo veneciano en Blender y lo llevé a la web.',tools:'Herramientas de este portafolio',works:'Obras seleccionadas',all:'Ver todos los proyectos'}, ja:{bio:'ペルーのリマを拠点にしています。このポートフォリオでは、Blenderでヴェネツィアの美術館を制作し、ウェブ上で再現しました。',tools:'制作に使用したツール',works:'代表作',all:'すべてのプロジェクトを見る'} };
+        const text = {...copy[locale], ...labels[locale]};
+        document.querySelectorAll('[data-i18n]').forEach((element) => { element.innerHTML = text[element.dataset.i18n]; });
         document.querySelector('#locale-select').value = locale;
       };
       document.querySelector('#locale-select').addEventListener('change', (event) => updateLocale(event.target.value));
+      const opening = document.querySelector('.opening');
+      const updatePanel = () => {
+        const progress = Math.min(1,Math.max(0,-opening.getBoundingClientRect().top / (innerHeight * .65)));
+        opening.style.setProperty('--reveal', String(progress));
+      };
+      addEventListener('scroll', updatePanel, {passive:true});
+      addEventListener('resize', updatePanel);
+      updatePanel();
     </script>
   </body>
 </html>
@@ -76,4 +94,16 @@ const year = new Date().getFullYear();
   .content-section{padding:clamp(5rem,10vw,10rem) clamp(1.5rem,9vw,10rem)}.section-label{margin:0 0 2rem;color:#c89b68;font:500 .7rem/1.4 'DM Mono',monospace;letter-spacing:.13em}.content-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(3rem,9vw,10rem);align-items:start}h2{margin:0;font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(3rem,6vw,6.5rem);line-height:.9;letter-spacing:-.065em}h2 em{color:#9f2647;font-style:normal}.content-grid>p{max-width:32rem;margin:.5rem 0 0;color:#211c20;font-size:1rem;line-height:1.8}.profile{background:#f6e7d6;color:#211c20}.archive{color:#f6e7d6;background:#351c28}.archive .content-grid>p{color:#dab8b2}.archive h2 em{color:#c89b68}.contact-section{color:#f6e7d6;background:#9f2647}.contact-section h2 em{color:#f6e7d6}.contact-section .content-grid>p{color:#f6e7d6dd}footer{padding:1.4rem clamp(1.5rem,3vw,3.5rem);color:#dab8b2;background:#211c20;font:500 .65rem/1.4 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
   @media(max-width:760px){.hero{min-height:auto;display:flex;flex-direction:column;background:#211c20}.hero-video{height:min(48svh,31rem);position:relative;object-position:61% center}.video-veil{height:min(48svh,31rem);background:linear-gradient(180deg,transparent 55%,rgba(33,28,32,.42))}.intro-panel{width:100%;min-height:auto;padding:1.5rem;box-shadow:none;transform:translateY(1.5rem);animation:mobile-panel-arrive .65s ease-out .15s forwards}.panel-rule{width:auto;height:1px;top:0;left:1.5rem;right:1.5rem;background:linear-gradient(90deg,transparent,#c89b6888 12%,#c89b6866 88%,transparent)}.intro-copy{margin:0;padding:4.5rem 0 3rem}h1{font-size:clamp(3.3rem,14.5vw,4.85rem)}.portrait-slot{margin-top:1.7rem}.panel-footer{padding-bottom:.2rem}.locale-picker-fixed{bottom:1.15rem}.scene-caption{display:none}.content-grid{grid-template-columns:1fr;gap:2rem}.content-grid>p{margin-top:0}@keyframes mobile-panel-arrive{to{transform:translateY(0)}}}
   @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.intro-panel,.panel-topline,.intro-copy,.panel-footer{transform:none;animation:none}.button{transition:none}}
+</style>
+
+<style>
+  .profile {position:relative;display:grid;align-content:center;min-height:66svh;background:#211c20;color:#f6e7d6}
+  .profile-body {max-width:34rem;font-size:1.1rem;line-height:1.7;color:#dab8b2}
+  .profile-body .section-label {margin:2rem 0 .4rem;color:#c89b68}
+  .profile-body p {margin:0}
+  @media(min-width:761px) and (prefers-reduced-motion:no-preference) {
+    .opening .hero {position:sticky;top:0}
+    .opening .hero::before {content:"";position:absolute;inset:0;background:#211c20;transform:scaleX(var(--reveal,0));transform-origin:left;pointer-events:none;z-index:-1}
+    .intro-panel {box-shadow:none}
+  }
 </style>
