@@ -6,61 +6,75 @@ const year = new Date().getFullYear();
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Portafolio de Sebastián Gabriel Díaz De la Cruz — fundador de DLC TECH S.A.C." />
-    <title>Sebastián Díaz De la Cruz — DLC TECH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portafolio de Sebastián Gabriel Díaz De la Cruz." />
+    <title>Sebastián Díaz — Portafolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700;6..96,800&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
     <main>
-      <section id="inicio" class="hero">
-        <div class="frame" aria-hidden="true"></div>
-        <nav aria-label="Navegación principal">
-          <a class="brand" href="#inicio">DLC <span>TECH</span></a>
-          <div class="navlinks"><a href="#perfil">Perfil</a><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto</a></div>
-        </nav>
-        <div class="hero-copy">
-          <p class="eyebrow">PORTAFOLIO · LIMA, PERÚ</p>
-          <h1>Sebastián<br /><em>Díaz De la Cruz</em></h1>
-          <div class="intro">
-            <p>Construyendo presencia digital con criterio, intención y una atención obsesiva por los detalles.</p>
-            <a class="underlined" href="#perfil">Conocer el enfoque <span aria-hidden="true">↘</span></a>
+      <section id="inicio" class="hero" aria-label="Presentación de Sebastián Díaz">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+          <source src="/media/museo-laguna-v19.mp4" type="video/mp4" />
+        </video>
+        <div class="video-veil" aria-hidden="true"></div>
+        <aside class="intro-panel" aria-label="Información principal">
+          <div class="panel-rule" aria-hidden="true"></div>
+          <div class="panel-content">
+            <div class="panel-topline">
+              <p class="folio" data-i18n="folio">PORTAFOLIO · 2026</p>
+              <div class="locale-picker" aria-label="Seleccionar idioma">
+                <button type="button" class="locale is-active" aria-pressed="true" data-locale="es">ES</button><span aria-hidden="true">·</span>
+                <button type="button" class="locale" aria-pressed="false" data-locale="en">EN</button><span aria-hidden="true">·</span>
+                <button type="button" class="locale" aria-pressed="false" data-locale="ja">日本語</button>
+              </div>
+            </div>
+            <div class="intro-copy">
+              <p class="eyebrow" data-i18n="eyebrow">BIENVENIDO A MI ARCHIVO DIGITAL</p>
+              <h1><span data-i18n="hello">HOLA,</span><span data-i18n="name">SOY SEBASTIÁN<br />DÍAZ</span></h1>
+              <div class="portrait-slot" aria-label="Espacio reservado para fotografía de Sebastián"><span data-i18n="portrait">RETRATO<br />PRÓXIMAMENTE</span></div>
+              <p class="tagline" data-i18n="tagline">Creo experiencias digitales<br />con propósito.</p>
+              <div class="hero-actions">
+                <a class="button button-primary" href="#perfil" data-i18n="about">Sobre mí</a>
+                <a class="button button-secondary" href="#contacto" data-i18n="contact">Contactar</a>
+              </div>
+            </div>
           </div>
-        </div>
-        <p class="signature">DLC TECH S.A.C.</p>
+          <p class="panel-footer" data-i18n="footer">LIMA, PERÚ · DISPONIBLE PARA COLABORAR</p>
+        </aside>
+        <div class="scene-caption" aria-hidden="true"><span>01</span><span>PALAZZO · LAGUNA</span></div>
       </section>
 
-      <section id="perfil" class="section profile">
-        <p class="eyebrow">01 / PERFIL</p>
-        <div class="two-col">
-          <h2>La tecnología también puede tener <em>carácter.</em></h2>
-          <div class="prose">
-            <p>Soy Sebastián Gabriel Díaz De la Cruz, fundador de DLC TECH S.A.C. Este espacio reúne el trabajo que apruebo y representa una forma de crear: clara, meticulosa y pensada para permanecer.</p>
-            <p>La base se encuentra en construcción. Cada caso futuro documentará el problema, mi rol, las tecnologías empleadas, capturas y los enlaces disponibles.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="proyectos" class="section projects">
-        <div><p class="eyebrow">02 / PROYECTOS</p><h2>Archivo <em>selectivo.</em></h2></div>
-        <div class="empty"><b aria-hidden="true">✦</b><p>Los proyectos se incorporarán aquí únicamente tras su aprobación.</p><span>PRÓXIMAMENTE</span></div>
-      </section>
-
-      <section id="contacto" class="contact">
-        <p class="eyebrow">03 / CONTACTO</p>
-        <h2>Hablemos de algo<br /><em>bien hecho.</em></h2>
-        <div class="contact-links"><a class="underlined" href="mailto:gerencia@dlctech.pe">gerencia@dlctech.pe</a><a class="underlined" href="https://github.com/tipaso07" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
-      </section>
+      <section id="perfil" class="content-section profile"><p class="section-label">01 / PERFIL</p><div class="content-grid"><h2>La tecnología también puede tener <em>carácter.</em></h2><p>Soy Sebastián Gabriel Díaz De la Cruz. Este espacio reúne el trabajo que apruebo y representa una forma de crear: clara, meticulosa y pensada para permanecer.</p></div></section>
+      <section id="proyectos" class="content-section archive"><p class="section-label">02 / PROYECTOS</p><div class="content-grid"><h2>Archivo <em>selectivo.</em></h2><p>Los proyectos se incorporarán aquí únicamente después de su aprobación.</p></div></section>
+      <section id="contacto" class="content-section contact-section"><p class="section-label">03 / CONTACTO</p><div class="content-grid"><h2>Hablemos de algo<br /><em>bien hecho.</em></h2><p>El canal de contacto se habilitará próximamente.</p></div></section>
     </main>
-    <footer><p>© {year} Sebastián Gabriel Díaz De la Cruz</p><p>DLC TECH S.A.C.</p></footer>
+    <footer>© {year} Sebastián Gabriel Díaz De la Cruz</footer>
+
+    <script>
+      const copy = {
+        es: { folio: 'PORTAFOLIO · 2026', eyebrow: 'BIENVENIDO A MI ARCHIVO DIGITAL', hello: 'HOLA,', name: 'SOY SEBASTIÁN<br>DÍAZ', portrait: 'RETRATO<br>PRÓXIMAMENTE', tagline: 'Creo experiencias digitales<br>con propósito.', about: 'Sobre mí', contact: 'Contactar', footer: 'LIMA, PERÚ · DISPONIBLE PARA COLABORAR' },
+        en: { folio: 'PORTFOLIO · 2026', eyebrow: 'WELCOME TO MY DIGITAL ARCHIVE', hello: 'HI,', name: 'I’M SEBASTIÁN<br>DÍAZ', portrait: 'PORTRAIT<br>COMING SOON', tagline: 'I build digital experiences<br>with purpose.', about: 'About me', contact: 'Contact', footer: 'LIMA, PERU · AVAILABLE TO COLLABORATE' },
+        ja: { folio: 'ポートフォリオ · 2026', eyebrow: 'デジタルアーカイブへようこそ', hello: 'こんにちは、', name: 'セバスチャン・<br>ディアスです', portrait: 'ポートレート<br>準備中', tagline: '目的のあるデジタル体験を<br>つくります。', about: 'プロフィール', contact: 'お問い合わせ', footer: 'リマ、ペルー · コラボレーション受付中' }
+      };
+      const updateLocale = (locale) => {
+        document.documentElement.lang = locale;
+        document.querySelectorAll('[data-i18n]').forEach((element) => { element.innerHTML = copy[locale][element.dataset.i18n]; });
+        document.querySelectorAll('.locale').forEach((button) => { const active = button.dataset.locale === locale; button.classList.toggle('is-active', active); button.setAttribute('aria-pressed', String(active)); });
+      };
+      document.querySelectorAll('.locale').forEach((button) => button.addEventListener('click', () => updateLocale(button.dataset.locale)));
+    </script>
   </body>
 </html>
 
 <style>
-  @import "tailwindcss";
-  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600&display=swap');
-  :global(*){box-sizing:border-box}:global(html){scroll-behavior:smooth}:global(body){margin:0;background:#111411;color:#f0eadc;font-family:Manrope,sans-serif}:global(a){color:inherit;text-decoration:none}:global(::selection){background:#b49453;color:#111411}
-  .hero{min-height:100svh;padding:2rem clamp(1.5rem,5vw,5rem);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(circle at 82% 20%,#1e4035 0%,#111411 37%),#111411}.hero:before,.hero:after{content:'';position:absolute;border:1px solid #be9a8254;border-radius:50%;pointer-events:none}.hero:before{width:min(53vw,720px);aspect-ratio:1;right:-12%;top:9%;box-shadow:inset 0 0 0 52px #295e4514,inset 0 0 0 104px #295e450d}.hero:after{width:min(20vw,280px);aspect-ratio:1;right:19%;bottom:-9%}.frame{position:absolute;inset:1.1rem;border:1px solid #f0eadc2e;pointer-events:none}.hero>*{position:relative;z-index:1}
-  nav{display:flex;align-items:center;justify-content:space-between}.brand{font:500 .85rem/1 'DM Mono',monospace;letter-spacing:.18em}.brand span,.eyebrow,em,.underlined span,.empty b{color:#b49453}.navlinks{display:flex;gap:clamp(1rem,3vw,2.5rem);font:.72rem 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em}.navlinks a{opacity:.7}.navlinks a:hover{opacity:1}.hero-copy{max-width:1040px;margin:auto 0;padding:6rem 0 3rem}.eyebrow{font:500 .68rem/1.5 'DM Mono',monospace;letter-spacing:.16em;margin:0 0 1.5rem}h1,h2{margin:0;font:400 clamp(3.6rem,10vw,9.5rem)/.87 'DM Serif Display',Georgia,serif;letter-spacing:-.055em}em{font-weight:inherit}.intro{display:flex;align-items:end;gap:3rem;margin:clamp(2.5rem,6vw,5rem) 0 0 clamp(0rem,16vw,13rem);max-width:610px}.intro p{max-width:270px;margin:0;font-size:.92rem;line-height:1.7;color:#f0eadcc2}.underlined{border-bottom:1px solid #b49453;padding-bottom:.35rem;white-space:nowrap;font:.7rem 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}.signature{align-self:flex-end;margin:0;font:.67rem 'DM Mono',monospace;letter-spacing:.13em;color:#f0eadc8f}
-  .section{padding:clamp(5rem,11vw,10rem) clamp(1.5rem,10vw,11rem)}.profile{background:#eee7d8;color:#182019;position:relative}.profile:after{content:'✦';position:absolute;right:12%;bottom:10%;color:#7b1f31;font-size:3rem;opacity:.7}.two-col,.projects{display:grid;grid-template-columns:1.15fr .85fr;gap:5rem;align-items:start}.profile h2,.projects h2,.contact h2{font-size:clamp(2.9rem,6vw,6rem)}.profile h2 em{color:#7b1f31}.prose{max-width:480px;font-size:1rem;line-height:1.8}.prose p{margin:0 0 1.4rem}.projects{background:#163c31;color:#f0eadc;grid-template-columns:.7fr 1.3fr;gap:3rem}.empty{min-height:290px;border:1px solid #f0eadc47;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem;background:linear-gradient(140deg,#ffffff0d,transparent)}.empty b{font-size:2.5rem;margin-bottom:1.2rem}.empty p{max-width:330px;font:1.2rem/1.55 'DM Serif Display',Georgia,serif;margin:0 0 1.5rem}.empty span,footer{font:.65rem 'DM Mono',monospace;letter-spacing:.15em}.empty span{color:#b49453}.contact{padding:clamp(5rem,10vw,9rem) clamp(1.5rem,10vw,11rem);background:#5d1827;position:relative;overflow:hidden}.contact:after{content:'DLC';position:absolute;right:-1rem;bottom:-4.7rem;font:400 clamp(10rem,28vw,27rem)/1 'DM Serif Display',Georgia,serif;color:#11141124}.contact>*{position:relative;z-index:1}.contact h2 em{color:#d0b477}.contact-links{display:flex;gap:2rem;margin-top:3rem;flex-wrap:wrap}footer{padding:1.4rem clamp(1.5rem,5vw,5rem);display:flex;justify-content:space-between;gap:1rem;color:#f0eadc99;text-transform:uppercase}
-  @media(max-width:720px){.navlinks{display:none}.intro{align-items:start;flex-direction:column;gap:1.8rem;margin-left:0}.two-col,.projects{grid-template-columns:1fr;gap:2.5rem}.profile:after{display:none}.section,.contact{padding-left:1.5rem;padding-right:1.5rem}}
+  :global(*){box-sizing:border-box}:global(html){scroll-behavior:smooth;background:#211c20}:global(body){margin:0;background:#211c20;color:#f6e7d6;font-family:Manrope,sans-serif}:global(a){color:inherit;text-decoration:none}:global(button){font:inherit}:global(::selection){color:#211c20;background:#c89b68}
+  .hero{min-height:100svh;isolation:isolate;overflow:hidden;position:relative;background:#211c20}.hero-video{width:100%;height:100%;inset:0;object-fit:cover;object-position:60% center;position:absolute;z-index:-3}.video-veil{position:absolute;inset:0;z-index:-2;pointer-events:none;background:linear-gradient(90deg,rgba(33,28,32,.2),transparent 56%)}
+  .intro-panel{width:clamp(29rem,31.5vw,38rem);min-height:100svh;position:relative;display:flex;flex-direction:column;padding:clamp(1.6rem,3vw,3.5rem);background:#211c20;box-shadow:18px 0 48px rgba(30,12,20,.18);transform:translateX(-104%);animation:panel-arrive .85s cubic-bezier(.2,.85,.22,1) .15s forwards}.panel-rule{width:1px;height:100%;position:absolute;top:0;right:0;background:linear-gradient(180deg,transparent,#c89b6888 11%,#c89b6866 88%,transparent)}.panel-content{flex:1;display:flex;flex-direction:column}.panel-topline{display:flex;align-items:center;justify-content:space-between;gap:1rem;animation:content-arrive .55s ease-out 1s both}.folio,.eyebrow,.panel-footer,.scene-caption,.locale-picker{margin:0;font:500 .69rem/1.4 'DM Mono',monospace;letter-spacing:.13em}.folio,.panel-footer{color:#dab8b2}.locale-picker{display:flex;align-items:center;color:#c89b68;gap:.45rem;white-space:nowrap}.locale{padding:0;border:0;color:#dab8b299;cursor:pointer;background:transparent;transition:color .2s ease}.locale:hover,.locale:focus-visible,.locale.is-active{color:#f6e7d6;outline:none}
+  .intro-copy{margin:auto 0;padding:3.5rem 0 2.5rem;animation:content-arrive .7s cubic-bezier(.2,.8,.2,1) .95s both}.eyebrow{margin-bottom:1.25rem;color:#c89b68}h1{margin:0;max-width:8ch;text-wrap:balance;font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(3.45rem,5.2vw,6.4rem);font-weight:700;line-height:.82;letter-spacing:-.08em}h1>span:first-child{display:block;margin-bottom:.16em;color:#c89b68;font-size:.48em;letter-spacing:.02em}h1>span:last-child{display:block}.portrait-slot{width:clamp(5.5rem,8vw,7.6rem);aspect-ratio:1;display:grid;place-items:center;margin:2rem 0 1.7rem;border:1px solid #c89b68;border-radius:999px;box-shadow:inset 0 0 0 8px #351c28,inset 0 0 0 9px #c89b6866;color:#dab8b2;text-align:center;font:500 .52rem/1.5 'DM Mono',monospace;letter-spacing:.1em}.tagline{margin:0;color:#dab8b2;font-size:clamp(.95rem,1.15vw,1.1rem);line-height:1.65}.hero-actions{display:flex;gap:.75rem;margin-top:2rem;flex-wrap:wrap}.button{min-width:8.7rem;padding:.85rem 1.15rem;display:inline-flex;justify-content:center;align-items:center;font:500 .7rem/1 'DM Mono',monospace;letter-spacing:.09em;text-transform:uppercase;transition:transform .2s ease,color .2s ease,background .2s ease,border-color .2s ease}.button:hover,.button:focus-visible{transform:translateY(-3px);outline:none}.button-primary{color:#211c20;background:#b97555;border:1px solid #b97555}.button-primary:hover,.button-primary:focus-visible{background:#d08c62;border-color:#d08c62}.button-secondary{color:#f6e7d6;border:1px solid #c89b68;background:transparent}.button-secondary:hover,.button-secondary:focus-visible{color:#211c20;background:#c89b68}.panel-footer{animation:content-arrive .55s ease-out 1.18s both}.scene-caption{position:absolute;right:clamp(1.5rem,3vw,3.4rem);bottom:clamp(1.5rem,3vw,3rem);display:flex;gap:1.1rem;color:#f6e7d6cc}.scene-caption span:first-child{color:#c89b68}@keyframes panel-arrive{to{transform:translateX(0)}}@keyframes content-arrive{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .content-section{padding:clamp(5rem,10vw,10rem) clamp(1.5rem,9vw,10rem)}.section-label{margin:0 0 2rem;color:#c89b68;font:500 .7rem/1.4 'DM Mono',monospace;letter-spacing:.13em}.content-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(3rem,9vw,10rem);align-items:start}h2{margin:0;font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(3rem,6vw,6.5rem);line-height:.9;letter-spacing:-.065em}h2 em{color:#9f2647;font-style:normal}.content-grid>p{max-width:32rem;margin:.5rem 0 0;color:#211c20;font-size:1rem;line-height:1.8}.profile{background:#f6e7d6;color:#211c20}.archive{color:#f6e7d6;background:#351c28}.archive .content-grid>p{color:#dab8b2}.archive h2 em{color:#c89b68}.contact-section{color:#f6e7d6;background:#9f2647}.contact-section h2 em{color:#f6e7d6}.contact-section .content-grid>p{color:#f6e7d6dd}footer{padding:1.4rem clamp(1.5rem,3vw,3.5rem);color:#dab8b2;background:#211c20;font:500 .65rem/1.4 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+  @media(max-width:760px){.hero{min-height:auto;display:flex;flex-direction:column;background:#211c20}.hero-video{height:min(48svh,31rem);position:relative;object-position:61% center}.video-veil{height:min(48svh,31rem);background:linear-gradient(180deg,transparent 55%,rgba(33,28,32,.42))}.intro-panel{width:100%;min-height:auto;padding:1.5rem;box-shadow:none;transform:translateY(1.5rem);animation:mobile-panel-arrive .65s ease-out .15s forwards}.panel-rule{width:auto;height:1px;top:0;left:1.5rem;right:1.5rem;background:linear-gradient(90deg,transparent,#c89b6888 12%,#c89b6866 88%,transparent)}.intro-copy{margin:0;padding:4.5rem 0 3rem}h1{font-size:clamp(3.7rem,16vw,5.5rem)}.portrait-slot{margin-top:1.7rem}.panel-footer{padding-bottom:.2rem}.scene-caption{display:none}.content-grid{grid-template-columns:1fr;gap:2rem}.content-grid>p{margin-top:0}@keyframes mobile-panel-arrive{to{transform:translateY(0)}}}
+  @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.intro-panel,.panel-topline,.intro-copy,.panel-footer{transform:none;animation:none}.button{transition:none}}
 </style>
