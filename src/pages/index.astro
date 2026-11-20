@@ -2,7 +2,7 @@
 const year = new Date().getFullYear();
 ---
 
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -23,27 +23,24 @@ const year = new Date().getFullYear();
         <aside class="intro-panel" aria-label="Información principal">
           <div class="panel-rule" aria-hidden="true"></div>
           <div class="panel-content">
-            <div class="panel-topline">
-              <p class="folio" data-i18n="folio">PORTAFOLIO · 2026</p>
-              <div class="locale-picker" aria-label="Seleccionar idioma">
-                <button type="button" class="locale is-active" aria-pressed="true" data-locale="es">ES</button><span aria-hidden="true">·</span>
-                <button type="button" class="locale" aria-pressed="false" data-locale="en">EN</button><span aria-hidden="true">·</span>
-                <button type="button" class="locale" aria-pressed="false" data-locale="ja">日本語</button>
-              </div>
-            </div>
+            <div class="panel-topline"><p class="folio" data-i18n="folio">PORTFOLIO · 2026</p></div>
             <div class="intro-copy">
-              <p class="eyebrow" data-i18n="eyebrow">BIENVENIDO A MI ARCHIVO DIGITAL</p>
-              <h1><span data-i18n="hello">HOLA,</span><span data-i18n="name">SOY SEBASTIÁN<br />DÍAZ</span></h1>
-              <div class="portrait-slot" aria-label="Espacio reservado para fotografía de Sebastián"><span data-i18n="portrait">RETRATO<br />PRÓXIMAMENTE</span></div>
-              <p class="tagline" data-i18n="tagline">Creo experiencias digitales<br />con propósito.</p>
+              <h1><span data-i18n="hello">HI,</span><span data-i18n="name">I’M SEBASTIÁN<br />DÍAZ</span></h1>
+              <div class="portrait-slot" aria-label="Reserved space for Sebastián’s portrait"></div>
+              <p class="tagline" data-i18n="tagline">I build digital experiences<br />with purpose.</p>
               <div class="hero-actions">
-                <a class="button button-primary" href="#perfil" data-i18n="about">Sobre mí</a>
-                <a class="button button-secondary" href="#contacto" data-i18n="contact">Contactar</a>
+                <a class="button button-primary" href="#perfil" data-i18n="about">About me</a>
+                <a class="button button-secondary" href="#contacto" data-i18n="contact">Contact</a>
               </div>
             </div>
           </div>
-          <p class="panel-footer" data-i18n="footer">LIMA, PERÚ · DISPONIBLE PARA COLABORAR</p>
+          <p class="panel-footer" data-i18n="footer">LIMA, PERU · AVAILABLE TO COLLABORATE</p>
         </aside>
+        <div class="locale-picker locale-picker-fixed" aria-label="Select language">
+          <button type="button" class="locale" aria-pressed="false" data-locale="es">ES</button><span aria-hidden="true">·</span>
+          <button type="button" class="locale is-active" aria-pressed="true" data-locale="en">EN</button><span aria-hidden="true">·</span>
+          <button type="button" class="locale" aria-pressed="false" data-locale="ja">日本語</button>
+        </div>
         <div class="scene-caption" aria-hidden="true"><span>01</span><span>PALAZZO · LAGUNA</span></div>
       </section>
 
@@ -55,9 +52,9 @@ const year = new Date().getFullYear();
 
     <script>
       const copy = {
-        es: { folio: 'PORTAFOLIO · 2026', eyebrow: 'BIENVENIDO A MI ARCHIVO DIGITAL', hello: 'HOLA,', name: 'SOY SEBASTIÁN<br>DÍAZ', portrait: 'RETRATO<br>PRÓXIMAMENTE', tagline: 'Creo experiencias digitales<br>con propósito.', about: 'Sobre mí', contact: 'Contactar', footer: 'LIMA, PERÚ · DISPONIBLE PARA COLABORAR' },
-        en: { folio: 'PORTFOLIO · 2026', eyebrow: 'WELCOME TO MY DIGITAL ARCHIVE', hello: 'HI,', name: 'I’M SEBASTIÁN<br>DÍAZ', portrait: 'PORTRAIT<br>COMING SOON', tagline: 'I build digital experiences<br>with purpose.', about: 'About me', contact: 'Contact', footer: 'LIMA, PERU · AVAILABLE TO COLLABORATE' },
-        ja: { folio: 'ポートフォリオ · 2026', eyebrow: 'デジタルアーカイブへようこそ', hello: 'こんにちは、', name: 'セバスチャン・<br>ディアスです', portrait: 'ポートレート<br>準備中', tagline: '目的のあるデジタル体験を<br>つくります。', about: 'プロフィール', contact: 'お問い合わせ', footer: 'リマ、ペルー · コラボレーション受付中' }
+        es: { folio: 'PORTAFOLIO · 2026', hello: 'HOLA,', name: 'SOY SEBASTIÁN<br>DÍAZ', tagline: 'Creo experiencias digitales<br>con propósito.', about: 'Sobre mí', contact: 'Contactar', footer: 'LIMA, PERÚ · DISPONIBLE PARA COLABORAR' },
+        en: { folio: 'PORTFOLIO · 2026', hello: 'HI,', name: 'I’M SEBASTIÁN<br>DÍAZ', tagline: 'I build digital experiences<br>with purpose.', about: 'About me', contact: 'Contact', footer: 'LIMA, PERU · AVAILABLE TO COLLABORATE' },
+        ja: { folio: 'ポートフォリオ · 2026', hello: 'こんにちは、', name: 'セバスチャン・<br>ディアスです', tagline: '目的のあるデジタル体験を<br>つくります。', about: 'プロフィール', contact: 'お問い合わせ', footer: 'リマ、ペルー · コラボレーション受付中' }
       };
       const updateLocale = (locale) => {
         document.documentElement.lang = locale;
@@ -72,8 +69,8 @@ const year = new Date().getFullYear();
 <style>
   :global(*){box-sizing:border-box}:global(html){scroll-behavior:smooth;background:#211c20}:global(body){margin:0;background:#211c20;color:#f6e7d6;font-family:Manrope,sans-serif}:global(a){color:inherit;text-decoration:none}:global(button){font:inherit}:global(::selection){color:#211c20;background:#c89b68}
   .hero{min-height:100svh;isolation:isolate;overflow:hidden;position:relative;background:#211c20}.hero-video{width:100%;height:100%;inset:0;object-fit:cover;object-position:60% center;position:absolute;z-index:-3}.video-veil{position:absolute;inset:0;z-index:-2;pointer-events:none;background:linear-gradient(90deg,rgba(33,28,32,.2),transparent 56%)}
-  .intro-panel{width:clamp(29rem,31.5vw,38rem);min-height:100svh;position:relative;display:flex;flex-direction:column;padding:clamp(1.6rem,3vw,3.5rem);background:#211c20;box-shadow:18px 0 48px rgba(30,12,20,.18);transform:translateX(-104%);animation:panel-arrive .85s cubic-bezier(.2,.85,.22,1) .15s forwards}.panel-rule{width:1px;height:100%;position:absolute;top:0;right:0;background:linear-gradient(180deg,transparent,#c89b6888 11%,#c89b6866 88%,transparent)}.panel-content{flex:1;display:flex;flex-direction:column}.panel-topline{display:flex;align-items:center;justify-content:space-between;gap:1rem;animation:content-arrive .55s ease-out 1s both}.folio,.eyebrow,.panel-footer,.scene-caption,.locale-picker{margin:0;font:500 .69rem/1.4 'DM Mono',monospace;letter-spacing:.13em}.folio,.panel-footer{color:#dab8b2}.locale-picker{display:flex;align-items:center;color:#c89b68;gap:.45rem;white-space:nowrap}.locale{padding:0;border:0;color:#dab8b299;cursor:pointer;background:transparent;transition:color .2s ease}.locale:hover,.locale:focus-visible,.locale.is-active{color:#f6e7d6;outline:none}
-  .intro-copy{margin:auto 0;padding:3.5rem 0 2.5rem;animation:content-arrive .7s cubic-bezier(.2,.8,.2,1) .95s both}.eyebrow{margin-bottom:1.25rem;color:#c89b68}h1{margin:0;max-width:8ch;text-wrap:balance;font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(3.45rem,5.2vw,6.4rem);font-weight:700;line-height:.82;letter-spacing:-.08em}h1>span:first-child{display:block;margin-bottom:.16em;color:#c89b68;font-size:.48em;letter-spacing:.02em}h1>span:last-child{display:block}.portrait-slot{width:clamp(5.5rem,8vw,7.6rem);aspect-ratio:1;display:grid;place-items:center;margin:2rem 0 1.7rem;border:1px solid #c89b68;border-radius:999px;box-shadow:inset 0 0 0 8px #351c28,inset 0 0 0 9px #c89b6866;color:#dab8b2;text-align:center;font:500 .52rem/1.5 'DM Mono',monospace;letter-spacing:.1em}.tagline{margin:0;color:#dab8b2;font-size:clamp(.95rem,1.15vw,1.1rem);line-height:1.65}.hero-actions{display:flex;gap:.75rem;margin-top:2rem;flex-wrap:wrap}.button{min-width:8.7rem;padding:.85rem 1.15rem;display:inline-flex;justify-content:center;align-items:center;font:500 .7rem/1 'DM Mono',monospace;letter-spacing:.09em;text-transform:uppercase;transition:transform .2s ease,color .2s ease,background .2s ease,border-color .2s ease}.button:hover,.button:focus-visible{transform:translateY(-3px);outline:none}.button-primary{color:#211c20;background:#b97555;border:1px solid #b97555}.button-primary:hover,.button-primary:focus-visible{background:#d08c62;border-color:#d08c62}.button-secondary{color:#f6e7d6;border:1px solid #c89b68;background:transparent}.button-secondary:hover,.button-secondary:focus-visible{color:#211c20;background:#c89b68}.panel-footer{animation:content-arrive .55s ease-out 1.18s both}.scene-caption{position:absolute;right:clamp(1.5rem,3vw,3.4rem);bottom:clamp(1.5rem,3vw,3rem);display:flex;gap:1.1rem;color:#f6e7d6cc}.scene-caption span:first-child{color:#c89b68}@keyframes panel-arrive{to{transform:translateX(0)}}@keyframes content-arrive{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .intro-panel{width:clamp(29rem,31.5vw,38rem);min-height:100svh;position:relative;display:flex;flex-direction:column;padding:clamp(1.6rem,3vw,3.5rem);background:#211c20;box-shadow:18px 0 48px rgba(30,12,20,.18);transform:translateX(-104%);animation:panel-arrive .85s cubic-bezier(.2,.85,.22,1) .15s forwards}.panel-rule{width:1px;height:100%;position:absolute;top:0;right:0;background:linear-gradient(180deg,transparent,#c89b6888 11%,#c89b6866 88%,transparent)}.panel-content{flex:1;display:flex;flex-direction:column}.panel-topline{display:flex;align-items:center;gap:1rem;animation:content-arrive .55s ease-out 1s both}.folio,.panel-footer,.scene-caption,.locale-picker{margin:0;font:500 .69rem/1.4 'DM Mono',monospace;letter-spacing:.13em}.folio,.panel-footer{color:#dab8b2}.locale-picker{display:flex;align-items:center;color:#c89b68;gap:.45rem;white-space:nowrap}.locale-picker-fixed{position:fixed;left:clamp(1.15rem,2vw,2.5rem);bottom:clamp(1.15rem,2vw,2.5rem);z-index:5;padding:.65rem .78rem;border:1px solid #c89b6877;background:#211c20e6;box-shadow:0 9px 24px #0000002b;backdrop-filter:blur(10px)}.locale{padding:0;border:0;color:#dab8b299;cursor:pointer;background:transparent;transition:color .2s ease}.locale:hover,.locale:focus-visible,.locale.is-active{color:#f6e7d6;outline:none}
+  .intro-copy{margin:auto 0;padding:3.5rem 0 2.5rem;animation:content-arrive .7s cubic-bezier(.2,.8,.2,1) .95s both}h1{margin:0;max-width:8ch;text-wrap:balance;font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(3.45rem,5.2vw,6.4rem);font-weight:700;line-height:.82;letter-spacing:-.08em}h1>span:first-child{display:block;margin-bottom:.16em;color:#c89b68;font-size:.48em;letter-spacing:.02em}h1>span:last-child{display:block}.portrait-slot{width:clamp(5.5rem,8vw,7.6rem);aspect-ratio:1;display:block;margin:2rem 0 1.7rem;border:1px solid #c89b68;border-radius:999px;box-shadow:inset 0 0 0 8px #351c28,inset 0 0 0 9px #c89b6866}.tagline{margin:0;color:#dab8b2;font-size:clamp(.95rem,1.15vw,1.1rem);line-height:1.65}.hero-actions{display:flex;gap:.75rem;margin-top:2rem;flex-wrap:wrap}.button{min-width:8.7rem;padding:.85rem 1.15rem;display:inline-flex;justify-content:center;align-items:center;font:500 .7rem/1 'DM Mono',monospace;letter-spacing:.09em;text-transform:uppercase;transition:transform .2s ease,color .2s ease,background .2s ease,border-color .2s ease}.button:hover,.button:focus-visible{transform:translateY(-3px);outline:none}.button-primary{color:#211c20;background:#b97555;border:1px solid #b97555}.button-primary:hover,.button-primary:focus-visible{background:#d08c62;border-color:#d08c62}.button-secondary{color:#f6e7d6;border:1px solid #c89b68;background:transparent}.button-secondary:hover,.button-secondary:focus-visible{color:#211c20;background:#c89b68}.panel-footer{animation:content-arrive .55s ease-out 1.18s both}.scene-caption{position:absolute;right:clamp(1.5rem,3vw,3.4rem);bottom:clamp(1.5rem,3vw,3rem);display:flex;gap:1.1rem;color:#f6e7d6cc}.scene-caption span:first-child{color:#c89b68}@keyframes panel-arrive{to{transform:translateX(0)}}@keyframes content-arrive{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
   .content-section{padding:clamp(5rem,10vw,10rem) clamp(1.5rem,9vw,10rem)}.section-label{margin:0 0 2rem;color:#c89b68;font:500 .7rem/1.4 'DM Mono',monospace;letter-spacing:.13em}.content-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(3rem,9vw,10rem);align-items:start}h2{margin:0;font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(3rem,6vw,6.5rem);line-height:.9;letter-spacing:-.065em}h2 em{color:#9f2647;font-style:normal}.content-grid>p{max-width:32rem;margin:.5rem 0 0;color:#211c20;font-size:1rem;line-height:1.8}.profile{background:#f6e7d6;color:#211c20}.archive{color:#f6e7d6;background:#351c28}.archive .content-grid>p{color:#dab8b2}.archive h2 em{color:#c89b68}.contact-section{color:#f6e7d6;background:#9f2647}.contact-section h2 em{color:#f6e7d6}.contact-section .content-grid>p{color:#f6e7d6dd}footer{padding:1.4rem clamp(1.5rem,3vw,3.5rem);color:#dab8b2;background:#211c20;font:500 .65rem/1.4 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
   @media(max-width:760px){.hero{min-height:auto;display:flex;flex-direction:column;background:#211c20}.hero-video{height:min(48svh,31rem);position:relative;object-position:61% center}.video-veil{height:min(48svh,31rem);background:linear-gradient(180deg,transparent 55%,rgba(33,28,32,.42))}.intro-panel{width:100%;min-height:auto;padding:1.5rem;box-shadow:none;transform:translateY(1.5rem);animation:mobile-panel-arrive .65s ease-out .15s forwards}.panel-rule{width:auto;height:1px;top:0;left:1.5rem;right:1.5rem;background:linear-gradient(90deg,transparent,#c89b6888 12%,#c89b6866 88%,transparent)}.intro-copy{margin:0;padding:4.5rem 0 3rem}h1{font-size:clamp(3.7rem,16vw,5.5rem)}.portrait-slot{margin-top:1.7rem}.panel-footer{padding-bottom:.2rem}.scene-caption{display:none}.content-grid{grid-template-columns:1fr;gap:2rem}.content-grid>p{margin-top:0}@keyframes mobile-panel-arrive{to{transform:translateY(0)}}}
   @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.intro-panel,.panel-topline,.intro-copy,.panel-footer{transform:none;animation:none}.button{transition:none}}
